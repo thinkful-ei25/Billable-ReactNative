@@ -1,0 +1,3 @@
+rootProject.name = 'Billable_ReactNative'
+
+include ':app'
