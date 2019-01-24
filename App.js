@@ -6,8 +6,8 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, TextInput, Button } from 'react-native';
 
 
 export default class App extends Component {
@@ -23,16 +23,29 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <TextInput 
-          style={{
-            width: 300, 
-            backgroundColor: '#eff2f7', 
-            borderColor: '#d0d3d8', 
-            borderRadius: 5, 
-            borderWidth: 1
-          }}
-          placeholder="Search"
+          style={styles.searchBar}
+          placeholder='Search'
           value={this.state.placeName} 
-          onChange={text => this.setState({search: text})}/>
+          onChange={text => this.setState({search: text})}
+        />
+        <View style={styles.contactNavRow}>
+          <View style={{width: '50%'}}>
+            <Button
+              style={styles.navButton}
+              onPress={() => console.log('Recents')}
+              title='Recents' 
+              color="#841584"
+            />
+          </View>
+          <View style={{width: '50%'}}>
+            <Button 
+              style={styles.navButton}
+              onPress={() => console.log('Contacts')}
+              title='Contacts' 
+              color="#841584"
+            /> 
+          </View>
+        </View>
       </View>
     );
   }
@@ -40,11 +53,29 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({ 
   container: { 
+    width: '100%', 
     padding: 40, 
     flex: 1, 
     backgroundColor: '#fff', 
     flexDirection: 'column', 
     alignItems: 'center', 
     justifyContent: 'flex-start'
+  }, 
+  searchBar: { 
+    width: 300, 
+    backgroundColor: '#eff2f7', 
+    borderColor: '#d0d3d8', 
+    borderRadius: 5, 
+    borderWidth: 1
+  }, 
+  contactNavRow: { 
+    flexDirection: 'row', 
+    width: '100%',
+    justifyContent: 'space-between', 
+  }, 
+  navButton: { 
+    borderColor: '#d0d3d8', 
+    borderRadius: 10, 
+    borderWidth: 1
   }
 }); 
