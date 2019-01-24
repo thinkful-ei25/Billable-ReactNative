@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
-
+import ContactList from './src/components/Contacts/Contact-List'; 
 
 export default class App extends Component {
   constructor(props) { 
@@ -46,6 +46,9 @@ export default class App extends Component {
             /> 
           </View>
         </View>
+        <View style={styles.contacts}>
+            <ContactList />
+        </View>
       </View>
     );
   }
@@ -77,5 +80,8 @@ const styles = StyleSheet.create({
     borderColor: '#d0d3d8', 
     borderRadius: 10, 
     borderWidth: 1
+  }, 
+  contacts: {
+    width: '100%', 
   }
 }); 
