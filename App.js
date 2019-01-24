@@ -7,43 +7,44 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  constructor(props) { 
+    super(props); 
+    this.state = { 
+      search: ''
+    }; 
+  
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <TextInput 
+          style={{
+            width: 300, 
+            backgroundColor: '#eff2f7', 
+            borderColor: '#d0d3d8', 
+            borderRadius: 5, 
+            borderWidth: 1
+          }}
+          placeholder="Search"
+          value={this.state.placeName} 
+          onChange={text => this.setState({search: text})}/>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const styles = StyleSheet.create({ 
+  container: { 
+    padding: 40, 
+    flex: 1, 
+    backgroundColor: '#fff', 
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    justifyContent: 'flex-start'
+  }
+}); 
